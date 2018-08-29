@@ -4,6 +4,18 @@ pipeline {
     agent any
 
     stages {
+        stage('Install dependencies') {
+            steps {
+                sh 'make install'
+            }
+        }
+
+        stage('Run unit tests') {
+            steps {
+                sh 'make test'
+            }
+        }
+
         stage('Build AMI') {
             steps {
                 dir('/opt/packer/templates') {

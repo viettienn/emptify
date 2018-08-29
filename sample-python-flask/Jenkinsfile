@@ -27,7 +27,7 @@ pipeline {
         stage('Deploy AMI') {
             steps {
                 dir('/opt/terraform/aws/flask-app') {
-                    sh 'terraform apply -auto-approve'
+                    sh 'terraform init && terraform apply -auto-approve'
                 }
             }
         }

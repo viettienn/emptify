@@ -16,4 +16,8 @@ pipelineJob('sample-python-flask-pipeline') {
             scriptPath 'sample-python-flask/Jenkinsfile'
         }
     }
+
+    triggers {
+        scm('* * * * *')
+    }
 }

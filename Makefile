@@ -1,2 +1,2 @@
 test:
-	python test_api.py
+	python sample-python-flask/test_api.py

@@ -8,12 +8,12 @@ pipelineJob('sample-python-flask-pipeline') {
             scm {
                 git {
                     remote {
-                        url('git@github.com:viettienn/emptify.git')
+                        url('https://github.com/viettienn/emptify.git')
                     }
                     branch('*/master')
                 }
             }
-            scriptPath 'jenkins/jenkinsfiles/sample_python_flask.Jenkinsfile'
+            scriptPath 'sample-python-flask/Jenkinsfile'
         }
     }
 }

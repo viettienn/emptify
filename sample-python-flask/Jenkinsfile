@@ -4,9 +4,19 @@ pipeline {
     agent any
 
     stages {
-        stage('test') {
+        stage('Build AMI') {
             steps {
-                sh 'python --version'
+                dir('/opt/packer/templates') {
+                    sh 'packer build -only=amazon-ebs flask-app.json'
+                }
+            }
+        }
+
+        stage('Deploy AMI') {
+            steps {
+                dir('/opt/terraform/aws/flask-app') {
+                    sh 'terraform apply -auto-approve'
+                }
             }
         }
     }

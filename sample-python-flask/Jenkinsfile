@@ -6,7 +6,9 @@ pipeline {
     stages {
         stage('Install dependencies') {
             steps {
+              withEnv(['LC_ALL=C']) {
                 sh 'make install'
+              }
             }
         }
 
